@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html  ng-app="Lista">
+
+
+
+<head>
+    <title>Lista cumparaturi</title>
+    <h1 align="center">Lista cumparaturi</h1>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="design.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="angular.js"></script>
+</head>
+
+
+
+
+<body ng-controller="ListaController">
+
+    <div class="produsNou">
+        <div id="butonAdaugare"><button ng-click="show()" >Adaugare Produs</button></div>
+        <form >
+
+            <div id="adaugare" ng-show="showInputs" >
+                <br>
+                <br>
+                Denumire produs : <input type="text" ng-model="newProductName"/><br>
+                Detalii produs : <input type="text" ng-model="newProductDetails"/>
+
+                <div id="butonTerminare"> <button ng-click="addProduct()">Terminare</button> </div>
+            </div>
+
+            <div id="listaProduse">
+                <ul>
+                    <li ng-repeat="product in products" >
+                        <input type="checkbox" ng-model="deleted">
+                        <span ng-class="{strike: deleted}" >
+                            {{product.name}}
+                            {{product.details}}
+                        </span>
+                        <button type="submit">Edit</button>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
